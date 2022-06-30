@@ -14,6 +14,7 @@ app.get('/api/frase', (req, res) => {
 });
 
 
+
 app.get('/api/palabras/:pos', (req, res) => {
     let pos = +--req.params.pos;
     let palabras = frase.split(' ')
@@ -35,6 +36,8 @@ app.get('/api/palabras/:pos', (req, res) => {
     })
 });
 
+
+
 app.post('/api/palabras', (req, res) => {
     frase += ` ${req.body.palabra}`;
 
@@ -46,6 +49,8 @@ app.post('/api/palabras', (req, res) => {
         pos: palabras.length
     })
 })
+
+
 
 app.put('/api/palabras/:pos', (req, res) => {
     let pos = +--req.params.pos;
@@ -71,9 +76,9 @@ app.put('/api/palabras/:pos', (req, res) => {
         actualizado: palabras[pos],
         anterior: palabraAnterior.join('')
     });
-
-
 })
+
+
 
 app.delete('/api/palabras/:pos', (req, res) => {
     let pos = +--req.params.pos;
@@ -106,5 +111,3 @@ app.listen(PORT,() =>{
 });
 
 app.on('error',(error) => console.error(error))
-
-
